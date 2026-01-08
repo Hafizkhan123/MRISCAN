@@ -1,7 +1,9 @@
-flask
-gunicorn
-tensorflow-cpu
+streamlit
+tensorflow
 numpy
 pillow
+keras
+
+
 
 
