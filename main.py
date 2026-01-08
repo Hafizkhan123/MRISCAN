@@ -25,8 +25,7 @@ import numpy as np
  # The project uses a folder called 'TEMPLATES' at the repo root; Flask by
  # default looks for 'templates' relative to app root. Set template_folder
  # so app finds templates regardless of where main.py is executed from.
-template_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'TEMPLATES'))
-app = Flask(__name__, template_folder=template_dir)
+app = Flask(__name__)
 
 # Debug helper: show the configured templates path so it's easy to confirm at runtime
 print(f"Using template folder: {template_dir}")
@@ -34,7 +33,7 @@ if not os.path.isdir(template_dir):
     print("Warning: template folder not found. Ensure the 'TEMPLATES' folder exists in the project root or use the default 'templates' name.")
 
 # Load the trained model using an explicit absolute path relative to repo root
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+project_root = os.path.abspath(os.path.dirname(__file__))
 model_path = os.path.join(project_root, 'models', 'model.keras')
 print(f"\n{'='*60}")
 print(f"Project root: {project_root}")
@@ -169,4 +168,5 @@ def get_uploaded_file(filename):
 
 #python main
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+
