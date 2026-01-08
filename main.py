@@ -27,11 +27,6 @@ import numpy as np
  # so app finds templates regardless of where main.py is executed from.
 app = Flask(__name__)
 
-# Debug helper: show the configured templates path so it's easy to confirm at runtime
-print(f"Using template folder: {template_dir}")
-if not os.path.isdir(template_dir):
-    print("Warning: template folder not found. Ensure the 'TEMPLATES' folder exists in the project root or use the default 'templates' name.")
-
 # Load the trained model using an explicit absolute path relative to repo root
 project_root = os.path.abspath(os.path.dirname(__file__))
 model_path = os.path.join(project_root, 'models', 'model.keras')
